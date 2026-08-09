@@ -27,9 +27,7 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
         </div>
 
         <h3 className="mt-4 text-xl sm:text-2xl">{project.title}</h3>
-        {project.subtitle && (
-          <p className="mt-1 text-sm font-semibold text-accent">{project.subtitle}</p>
-        )}
+        
         <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{project.description}</p>
 
         {project.highlights && (
@@ -48,14 +46,8 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
           <div className="mt-3 flex flex-wrap items-center gap-2">
             {project.pipeline.map((p, i) => (
               <div key={p.label} className="flex items-center gap-2">
-                <div
-                  className={`rounded-md border-[1.5px] bg-card px-2.5 py-1.5 ${
-                    p.accent ? "border-accent" : "border-border"
-                  }`}
-                >
-                  <p
-                    className={`text-[11px] font-bold ${p.accent ? "text-accent" : "text-foreground"}`}
-                  >
+                <div className="rounded-md border-[1.5px] border-accent bg-card px-2.5 py-1.5">
+                  <p className="text-[11px] font-bold text-accent">
                     {p.label}
                   </p>
                   <p className="font-mono text-[9px] text-muted-foreground">{p.sub}</p>
