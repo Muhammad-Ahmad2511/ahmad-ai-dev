@@ -6,10 +6,11 @@ import { heroStats, marquee, profile } from "@/data/portfolio";
 const ThreeAIVisualization = lazy(() => import("./ThreeAIVisualization"));
 
 const badges = [
-  { text: "EXPLAINABLE AI", className: "left-0 top-24" },
-  { text: "LLM SYSTEMS", className: "left-[38%] top-6 hidden md:block" },
-  { text: "PRODUCTION ML", className: "left-2 bottom-4 hidden sm:block" },
+  { text: "EXPLAINABLE AI", className: "left-0 top-0" },
+  { text: "LLM SYSTEMS", className: "left-[36%] top-0" },
+  { text: "VECTOR SEARCH", className: "right-0 top-0" },
 ];
+
 
 export function Hero() {
   const reduce = useReducedMotion();
