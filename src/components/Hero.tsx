@@ -120,7 +120,7 @@ export function Hero() {
           >
             <div className="relative overflow-hidden rounded-2xl border-2 border-border bg-card shadow-[6px_6px_0_0_var(--border)]">
               <div className="flex items-center justify-between gap-3 border-b-2 border-border px-4 py-3">
-                <div className="flex items-center gap-2">
+                <div className="flex min-w-0 items-center gap-2">
                   <span className="h-2.5 w-2.5 rounded-full bg-accent" />
                   <span className="h-2.5 w-2.5 rounded-full bg-foreground" />
                   <span className="ml-2 truncate font-mono text-[10px] tracking-[0.12em] sm:text-xs">
