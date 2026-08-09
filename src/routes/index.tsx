@@ -1,24 +1,47 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Navbar } from "@/components/Navbar";
+import { Hero } from "@/components/Hero";
+import { About } from "@/components/About";
+import { Experience } from "@/components/Experience";
+import { Projects } from "@/components/Projects";
+import { TechnicalStack } from "@/components/TechnicalStack";
+import { Education } from "@/components/Education";
+import { Contact } from "@/components/Contact";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
+const title = "Muhammad Ahmad — AI/ML Engineer";
+const description =
+  "AI/ML Engineer and Data Science student building explainable AI, RAG systems, and full-stack intelligent applications.";
+
 export const Route = createFileRoute("/")({
-  component: Index,
+  head: () => ({
+    meta: [
+      { title },
+      { name: "description", content: description },
+      { property: "og:title", content: title },
+      { property: "og:description", content: description },
+      { property: "og:type", content: "profile" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: title },
+      { name: "twitter:description", content: description },
+    ],
+  }),
+  component: Home,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
+function Home() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <>
+      <Navbar />
+      <main>
+        <h1 className="sr-only">Muhammad Ahmad — AI/ML Engineer</h1>
+        <Hero />
+        <About />
+        <Experience />
+        <Projects />
+        <TechnicalStack />
+        <Education />
+        <Contact />
+      </main>
+    </>
   );
 }
