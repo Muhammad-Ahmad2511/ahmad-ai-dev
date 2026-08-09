@@ -5,10 +5,15 @@ import { heroStats, marquee, profile } from "@/data/portfolio";
 
 const ThreeAIVisualization = lazy(() => import("./ThreeAIVisualization"));
 
+// ... existing imports ...
+
 const badges = [
-  { text: "EXPLAINABLE AI", className: "left-0 top-0" },
-  { text: "LLM SYSTEMS", className: "left-[36%] top-0" },
-  { text: "VECTOR SEARCH", className: "right-0 top-0" },
+  { text: "EXPLAINABLE AI", style: { left: '6%', top: '2%' }, zIndex: 1 },
+  { text: "LLM SYSTEMS", style: { left: '40%', top: '13%' }, zIndex: 1 },
+  { text: "RAG", style: { left: '78%', top: '4%' }, zIndex: 1 },
+  { text: "VECTOR SEARCH", style: { left: '38%', top: '64%' }, zIndex: 1 },
+  { text: "PRODUCTION ML", style: { left: '22%', top: '95%' }, zIndex: 1 },
+  { text: "FULL STACK AI", style: { left: '78%', top: '86%' }, zIndex: 1 },
 ];
 
 
@@ -26,14 +31,34 @@ export function Hero() {
         <div className="relative grid items-center gap-12 py-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:gap-14 lg:py-14">
           {/* Decorative badges (kept clear of content) */}
           <div className="pointer-events-none absolute inset-0 hidden lg:block">
-            {badges.map((b) => (
-              <span
-                key={b.text}
-                className={`absolute ${b.className} rounded-full border-[1.5px] border-accent bg-background px-3 py-1 font-mono text-[10px] tracking-[0.16em] text-accent`}
-              >
-                {b.text}
-              </span>
-            ))}
+            {badges.map((b, index) => {
+              // Create unique animation variations for each badge
+              const xDrift = index % 2 === 0 ? 8 : -8;  // Alternate left/right drift
+              const yDrift = index % 3 === 0 ? 6 : -6;  // Staggered vertical drift
+              const duration = 6 + index * 1.5;  // Different durations per badge
+              const delay = index * 0.5;  // Staggered start times
+
+              return (
+                <motion.span
+                  key={b.text}
+                  className="absolute rounded-full border-[1.5px] border-accent bg-background px-3 py-1 font-mono text-[10px] tracking-[0.16em] text-accent"
+                  style={{ ...b.style, zIndex: b.zIndex }}
+                  initial={{ y: -2, x: 0 }}
+                  animate={{
+                    y: [0, yDrift, -yDrift, 0],
+                    x: [0, xDrift, -xDrift, 0]
+                  }}
+                  transition={{
+                    duration,
+                    delay,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                >
+                  {b.text}
+                </motion.span>
+              );
+            })}
           </div>
 
           <motion.div
