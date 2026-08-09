@@ -1,6 +1,6 @@
 import { Reveal, SectionFrame, SectionHeading } from "./primitives";
 import { approach, currentlyBuilding, keyDetails, principles, profile } from "@/data/portfolio";
-import profileAsset from "@/assets/profile.jpg.asset.json";
+import profileAsset from "@/assets/profile.jpg";
 
 export function About() {
   return (
@@ -29,7 +29,7 @@ export function About() {
           </div>
           <div className="overflow-hidden rounded-xl border-2 border-border shadow-[5px_5px_0_0_var(--border)]">
             <img
-              src={profileAsset.url}
+              src={profileAsset}
               alt="Portrait of Muhammad Ahmad, AI/ML Engineer"
               className="aspect-[4/3] w-full object-cover"
               loading="lazy"

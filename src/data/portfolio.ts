@@ -12,7 +12,7 @@ export const profile = {
   phone: "+92 326 4498774",
   github: "https://github.com/Muhammad-Ahmad2511",
   githubHandle: "Muhammad-Ahmad2511",
-  linkedin: "https://www.linkedin.com/in/muhammad-ahmad2511/",
+  linkedin: "https://www.linkedin.com/in/hafiz-muhammad-ahmad-b76304273/",
   linkedinHandle: "Muhammad Ahmad",
 };
 
