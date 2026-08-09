@@ -30,7 +30,7 @@ export function TechnicalStack() {
               <h3 className="mt-3 text-xl sm:text-2xl">{g.title}</h3>
               <div className="mt-5 flex flex-wrap gap-2">
                 {g.items.map((item) => (
-                  <Chip key={item} primary={g.primary.includes(item)}>
+                  <Chip key={item} primary={true}>
                     {item}
                   </Chip>
                 ))}
