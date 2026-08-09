@@ -40,7 +40,7 @@ export function Hero() {
             initial={{ opacity: 0, y: reduce ? 0 : 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: reduce ? 0.01 : 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="relative z-10 min-w-0 lg:pt-16"
+            className="relative z-10 min-w-0 lg:pt-20"
           >
             <div className="flex items-center gap-3">
               <span className="h-3.5 w-24 bg-accent sm:w-40" aria-hidden="true" />
