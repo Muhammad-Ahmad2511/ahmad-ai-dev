@@ -119,15 +119,15 @@ export function Hero() {
             className="relative z-10 min-w-0"
           >
             <div className="relative overflow-hidden rounded-2xl border-2 border-border bg-card shadow-[6px_6px_0_0_var(--border)]">
-              <div className="flex items-center justify-between border-b-2 border-border px-4 py-3">
+              <div className="flex items-center justify-between gap-3 border-b-2 border-border px-4 py-3">
                 <div className="flex items-center gap-2">
                   <span className="h-2.5 w-2.5 rounded-full bg-accent" />
                   <span className="h-2.5 w-2.5 rounded-full bg-foreground" />
-                  <span className="ml-2 font-mono text-xs tracking-[0.14em]">
+                  <span className="ml-2 truncate font-mono text-[10px] tracking-[0.12em] sm:text-xs">
                     NEURAL_SYSTEM_CORE
                   </span>
                 </div>
-                <span className="mono-label">v1.0.4 // ACTIVE</span>
+                <span className="mono-label shrink-0 whitespace-nowrap">v1.0.4 // ACTIVE</span>
               </div>
               <div className="tech-grid h-[340px] sm:h-[420px] lg:h-[520px]">
                 <Suspense fallback={<div className="h-full w-full" />}>
