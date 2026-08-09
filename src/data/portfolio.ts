@@ -194,8 +194,8 @@ export const projects: Project[] = [
       { label: "Proposal", sub: "Grounded Draft", accent: true },
     ],
     stack: ["Node.js", "LangChain.js", "Pinecone", "Groq", "RAG", "React", "Vercel"],
-    github: "https://github.com/Muhammad-Ahmad2511",
-    demo: "https://devnauts-proposal-builder.vercel.app",
+    github: "https://github.com/idreesahmed1257/uw-proposal-builder",
+    demo: "https://uw-proposal-builder.vercel.app/",
   },
   {
     index: "02",
@@ -224,8 +224,8 @@ export const projects: Project[] = [
       "OpenAI SDK",
       "Docker",
     ],
-    github: "https://github.com/Muhammad-Ahmad2511",
-    demo: "https://site-sense.vercel.app",
+    github: "https://github.com/Muhammad-Ahmad2511/site-sense",
+    demo: "https://site-sense-three.vercel.app/",
   },
   {
     index: "03",
@@ -248,8 +248,8 @@ export const projects: Project[] = [
       { label: "SHAP", sub: "Explainability", accent: true },
     ],
     stack: ["Python", "XGBoost", "LightGBM", "SHAP", "Streamlit", "Scikit-learn"],
-    github: "https://github.com/Muhammad-Ahmad2511",
-    demo: "https://pakwheels-price-predictor.streamlit.app",
+    github: "https://github.com/Muhammad-Ahmad2511/used-car-price-predictor",
+    demo: "https://muhammad-ahmad2511-used-car-price-predictor.streamlit.app/",
   },
   {
     index: "04",
@@ -265,7 +265,7 @@ export const projects: Project[] = [
       { label: "Draft Gen", sub: "Grounded Reply" },
     ],
     stack: ["Python", "Flask", "ChromaDB", "Groq API", "Llama 3.3", "Prompt Engineering"],
-    github: "https://github.com/Muhammad-Ahmad2511",
+    github: "https://github.com/Muhammad-Ahmad2511/support-triage-project",
   },
   {
     index: "05",
@@ -281,7 +281,7 @@ export const projects: Project[] = [
       { label: "Classifier", sub: "Multi-class" },
     ],
     stack: ["PyTorch", "Hugging Face", "Flan-T5", "DistilBERT", "NLP"],
-    github: "https://github.com/Muhammad-Ahmad2511",
+    github: "https://github.com/Muhammad-Ahmad2511/emotion-detection-small-llms",
   },
   {
     index: "06",
@@ -297,7 +297,7 @@ export const projects: Project[] = [
       { label: "Forecasting", sub: "Seasonality", accent: true },
     ],
     stack: ["Python", "Time-Series Analysis", "Data Mining", "Statsmodels", "Scikit-learn"],
-    github: "https://github.com/Muhammad-Ahmad2511",
+    github: "https://github.com/Muhammad-Ahmad2511/sales-trend-analysis",
   },
   {
     index: "07",
@@ -313,7 +313,7 @@ export const projects: Project[] = [
       { label: "Power BI", sub: "Dashboard" },
     ],
     stack: ["SQL", "Power BI", "Inventory Analytics"],
-    github: "https://github.com/Muhammad-Ahmad2511",
+    github: "https://github.com/Muhammad-Ahmad2511/Electronics-Inventory-Management-Dashboard",
   },
   {
     index: "08",
@@ -329,7 +329,7 @@ export const projects: Project[] = [
       { label: "Analytics", sub: "Power BI" },
     ],
     stack: ["PostgreSQL", "ETL", "Data Warehousing", "Power BI", "DAX", "Star Schema"],
-    github: "https://github.com/Muhammad-Ahmad2511",
+    github: "https://github.com/Muhammad-Ahmad2511/retail-inventory-analytics-bi",
   },
   {
     index: "09",
@@ -345,7 +345,7 @@ export const projects: Project[] = [
       { label: "MongoDB", sub: "Persistence", accent: true },
     ],
     stack: ["MongoDB", "Express.js", "React", "Node.js", "Socket.io", "JWT"],
-    github: "https://github.com/Muhammad-Ahmad2511",
+    github: "https://github.com/Muhammad-Ahmad2511/real-time-chat-app",
   },
 ];
 
@@ -496,24 +496,39 @@ export const education = {
 };
 
 export const certifications = [
-  { no: "01", title: "Deep Learning with PyTorch", issuer: "DataCamp", tag: "DEEP LEARNING" },
+  {
+    no: "01",
+    title: "Deep Learning with PyTorch",
+    issuer: "DataCamp",
+    tag: "DEEP LEARNING",
+    url: "https://www.datacamp.com/statement-of-accomplishment/course/9eabbc32e0ca84d8f4a892be28c99fa1c06c19d6?raw=1",
+  },
   {
     no: "02",
     title: "Prompt Engineering with OpenAI API",
     issuer: "DataCamp",
     tag: "GENERATIVE AI",
+    url: "https://www.datacamp.com/statement-of-accomplishment/course/e18d6c6bb8e10cd4cd046e0be8e8f8a8cded9148?raw=1",
   },
-  { no: "03", title: "IBM Machine Learning", issuer: "Coursera", tag: "MACHINE LEARNING" },
+  {
+    no: "03",
+    title: "IBM Machine Learning",
+    issuer: "Coursera",
+    tag: "MACHINE LEARNING",
+    url: "https://www.coursera.org/account/accomplishments/specialization/certificate/SJFWK6SVPRFA",
+  },
   {
     no: "04",
     title: "Feature Engineering for Machine Learning",
     issuer: "DataCamp",
     tag: "MACHINE LEARNING",
+    url: "https://www.datacamp.com/statement-of-accomplishment/course/2c0a7a8b961475cb1c77d0a0289c5a3d870e6c0b?raw=1",
   },
   {
     no: "05",
     title: "Deep Learning and Reinforcement Learning",
     issuer: "Coursera",
     tag: "DEEP LEARNING",
+    url: "https://www.coursera.org/account/accomplishments/certificate/M7W3YP1FABUB",
   },
 ];

@@ -68,9 +68,14 @@ export function Education() {
                 </div>
                 <h4 className="mt-4 text-lg">{c.title}</h4>
                 <p className="mt-1 text-sm text-muted-foreground">Verified by {c.issuer}</p>
-                <span className="mt-auto inline-flex items-center gap-1 self-end pt-8 font-mono text-xs text-muted-foreground">
+                <a
+                  href={c.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-auto inline-flex items-center gap-1 self-end pt-8 font-mono text-xs text-muted-foreground"
+                >
                   View Certificate <ArrowUpRight className="h-3.5 w-3.5" />
-                </span>
+                </a>
               </div>
             </div>
           </Reveal>
