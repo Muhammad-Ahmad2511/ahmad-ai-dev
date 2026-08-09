@@ -76,10 +76,11 @@ function Network({ reduce }: { reduce: boolean }) {
       pts.push(0, 0, 0, ...n.pos);
     });
     for (let i = 0; i < nodes.length; i++) {
-      const a = nodes[i];
-      const b = nodes[(i + 3) % nodes.length];
+      const a = nodes[i]!;
+      const b = nodes[(i + 3) % nodes.length]!;
       pts.push(...a.pos, ...b.pos);
     }
+
     const g = new THREE.BufferGeometry();
     g.setAttribute("position", new THREE.Float32BufferAttribute(pts, 3));
     return g;
