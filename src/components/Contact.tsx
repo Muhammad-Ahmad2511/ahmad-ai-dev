@@ -170,25 +170,34 @@ export function Contact() {
 
               <button
                 type="submit"
-                className="inline-flex w-full items-center justify-center gap-2 rounded-lg border-2 border-border bg-primary px-6 py-3.5 text-sm font-bold tracking-[0.08em] text-primary-foreground uppercase transition-transform hover:-translate-y-0.5"
+                disabled={status === "sending"}
+                className="inline-flex w-full items-center justify-center gap-2 rounded-lg border-2 border-border bg-primary px-6 py-3.5 text-sm font-bold tracking-[0.08em] text-primary-foreground uppercase transition-transform hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-70 disabled:hover:translate-y-0"
               >
-                Send Message <ArrowRight className="h-4 w-4" />
+                {status === "sending" ? (
+                  <>
+                    Sending <Loader2 className="h-4 w-4 animate-spin" />
+                  </>
+                ) : (
+                  <>
+                    Send Message <ArrowRight className="h-4 w-4" />
+                  </>
+                )}
               </button>
 
               <div aria-live="polite">
                 {status === "success" && (
                   <p className="flex items-center gap-2 rounded-lg border-[1.5px] border-border bg-secondary px-4 py-3 text-sm">
-                    <CheckCircle2 className="h-4 w-4 text-accent" /> Message ready — thanks for
-                    reaching out.
+                    <CheckCircle2 className="h-4 w-4 text-accent" /> Message sent — thanks for
+                    reaching out, I'll reply soon.
                   </p>
                 )}
                 {status === "error" && (
                   <p className="flex items-center gap-2 rounded-lg border-[1.5px] border-destructive px-4 py-3 text-sm text-destructive">
-                    <AlertCircle className="h-4 w-4" /> Please complete all three fields with a
-                    valid email.
+                    <AlertCircle className="h-4 w-4" /> {errorMessage}
                   </p>
                 )}
               </div>
+
             </form>
 
             <div className="mt-7 flex flex-wrap items-center justify-between gap-3 border-t border-hairline pt-4">
