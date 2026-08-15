@@ -1,29 +1,43 @@
 import { useState, type FormEvent } from "react";
-import { ArrowRight, CheckCircle2, Github, Linkedin, Mail, Phone, AlertCircle } from "lucide-react";
+import { ArrowRight, CheckCircle2, Github, Linkedin, Mail, Phone, AlertCircle, Loader2 } from "lucide-react";
+import { useServerFn } from "@tanstack/react-start";
 import { Reveal, SectionFrame, SectionHeading } from "./primitives";
 import { navItems, profile } from "@/data/portfolio";
+import { sendContactEmail } from "@/lib/contact.functions";
 
-type Status = "idle" | "success" | "error";
+type Status = "idle" | "sending" | "success" | "error";
 
 export function Contact() {
   const [status, setStatus] = useState<Status>("idle");
+  const [errorMessage, setErrorMessage] = useState("");
   const [values, setValues] = useState({ name: "", email: "", message: "" });
+  const send = useServerFn(sendContactEmail);
 
-  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (status === "sending") return;
     if (!values.name.trim() || !values.email.includes("@") || values.message.trim().length < 5) {
+      setErrorMessage("Please complete all three fields with a valid email.");
       setStatus("error");
       return;
     }
-    // No backend yet: fall back to the user's mail client.
-    window.location.href = `mailto:${profile.email}?subject=${encodeURIComponent(
-      `Portfolio enquiry from ${values.name}`,
-    )}&body=${encodeURIComponent(`${values.message}\n\n— ${values.name} (${values.email})`)}`;
-    setStatus("success");
+    setStatus("sending");
+    setErrorMessage("");
+    try {
+      await send({ data: values });
+      setStatus("success");
+      setValues({ name: "", email: "", message: "" });
+    } catch (err) {
+      setErrorMessage(
+        err instanceof Error && err.message ? err.message : "Something went wrong. Please try again.",
+      );
+      setStatus("error");
+    }
   };
 
   const field =
     "mt-2 w-full rounded-lg border-2 border-border bg-card px-4 py-3 text-sm outline-none placeholder:text-muted-foreground focus:border-accent";
+
 
   return (
     <SectionFrame
@@ -156,25 +170,34 @@ export function Contact() {
 
               <button
                 type="submit"
-                className="inline-flex w-full items-center justify-center gap-2 rounded-lg border-2 border-border bg-primary px-6 py-3.5 text-sm font-bold tracking-[0.08em] text-primary-foreground uppercase transition-transform hover:-translate-y-0.5"
+                disabled={status === "sending"}
+                className="inline-flex w-full items-center justify-center gap-2 rounded-lg border-2 border-border bg-primary px-6 py-3.5 text-sm font-bold tracking-[0.08em] text-primary-foreground uppercase transition-transform hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-70 disabled:hover:translate-y-0"
               >
-                Send Message <ArrowRight className="h-4 w-4" />
+                {status === "sending" ? (
+                  <>
+                    Sending <Loader2 className="h-4 w-4 animate-spin" />
+                  </>
+                ) : (
+                  <>
+                    Send Message <ArrowRight className="h-4 w-4" />
+                  </>
+                )}
               </button>
 
               <div aria-live="polite">
                 {status === "success" && (
                   <p className="flex items-center gap-2 rounded-lg border-[1.5px] border-border bg-secondary px-4 py-3 text-sm">
-                    <CheckCircle2 className="h-4 w-4 text-accent" /> Message ready — thanks for
-                    reaching out.
+                    <CheckCircle2 className="h-4 w-4 text-accent" /> Message sent — thanks for
+                    reaching out, I'll reply soon.
                   </p>
                 )}
                 {status === "error" && (
                   <p className="flex items-center gap-2 rounded-lg border-[1.5px] border-destructive px-4 py-3 text-sm text-destructive">
-                    <AlertCircle className="h-4 w-4" /> Please complete all three fields with a
-                    valid email.
+                    <AlertCircle className="h-4 w-4" /> {errorMessage}
                   </p>
                 )}
               </div>
+
             </form>
 
             <div className="mt-7 flex flex-wrap items-center justify-between gap-3 border-t border-hairline pt-4">
