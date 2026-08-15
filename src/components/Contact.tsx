@@ -1,29 +1,43 @@
 import { useState, type FormEvent } from "react";
-import { ArrowRight, CheckCircle2, Github, Linkedin, Mail, Phone, AlertCircle } from "lucide-react";
+import { ArrowRight, CheckCircle2, Github, Linkedin, Mail, Phone, AlertCircle, Loader2 } from "lucide-react";
+import { useServerFn } from "@tanstack/react-start";
 import { Reveal, SectionFrame, SectionHeading } from "./primitives";
 import { navItems, profile } from "@/data/portfolio";
+import { sendContactEmail } from "@/lib/contact.functions";
 
-type Status = "idle" | "success" | "error";
+type Status = "idle" | "sending" | "success" | "error";
 
 export function Contact() {
   const [status, setStatus] = useState<Status>("idle");
+  const [errorMessage, setErrorMessage] = useState("");
   const [values, setValues] = useState({ name: "", email: "", message: "" });
+  const send = useServerFn(sendContactEmail);
 
-  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (status === "sending") return;
     if (!values.name.trim() || !values.email.includes("@") || values.message.trim().length < 5) {
+      setErrorMessage("Please complete all three fields with a valid email.");
       setStatus("error");
       return;
     }
-    // No backend yet: fall back to the user's mail client.
-    window.location.href = `mailto:${profile.email}?subject=${encodeURIComponent(
-      `Portfolio enquiry from ${values.name}`,
-    )}&body=${encodeURIComponent(`${values.message}\n\n— ${values.name} (${values.email})`)}`;
-    setStatus("success");
+    setStatus("sending");
+    setErrorMessage("");
+    try {
+      await send({ data: values });
+      setStatus("success");
+      setValues({ name: "", email: "", message: "" });
+    } catch (err) {
+      setErrorMessage(
+        err instanceof Error && err.message ? err.message : "Something went wrong. Please try again.",
+      );
+      setStatus("error");
+    }
   };
 
   const field =
     "mt-2 w-full rounded-lg border-2 border-border bg-card px-4 py-3 text-sm outline-none placeholder:text-muted-foreground focus:border-accent";
+
 
   return (
     <SectionFrame
