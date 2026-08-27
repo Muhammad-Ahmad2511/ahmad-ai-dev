@@ -108,7 +108,6 @@ export const experiences: Experience[] = [
     period: "Jun 2026 – Aug 2026",
     mode: "Remote",
     tag: "AI ENGINEERING",
-    current: true,
     summary:
       "Worked across full-stack development and AI engineering, building the technical foundation for retrieval-augmented and intelligent application systems.",
     bullets: [
