@@ -14,6 +14,15 @@ export function Contact() {
   const [values, setValues] = useState({ name: "", email: "", message: "" });
   const send = useServerFn(sendContactEmail);
 
+  const copyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(profile.email);
+      toast.success("Email copied!", { description: profile.email });
+    } catch {
+      toast.error("Could not copy email");
+    }
+  };
+
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (status === "sending") return;
