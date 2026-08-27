@@ -109,9 +109,20 @@ export function Contact() {
                 <div className="min-w-0">
                   <dt className="mono-label">{label}</dt>
                   <dd className="mt-1 truncate font-semibold">
-                    <a href={href} target={href.startsWith("http") ? "_blank" : undefined} rel="noreferrer">
-                      {value}
-                    </a>
+                    {label === "EMAIL" ? (
+                      <button
+                        type="button"
+                        onClick={copyEmail}
+                        className="hover:text-accent focus:outline-none"
+                        title="Click to copy email address"
+                      >
+                        {value}
+                      </button>
+                    ) : (
+                      <a href={href} target={href.startsWith("http") ? "_blank" : undefined} rel="noreferrer">
+                        {value}
+                      </a>
+                    )}
                   </dd>
                 </div>
                 <Icon className="h-4.5 w-4.5 shrink-0 text-muted-foreground" aria-hidden="true" />
