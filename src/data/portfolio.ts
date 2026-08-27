@@ -104,9 +104,9 @@ export type Experience = {
 export const experiences: Experience[] = [
   {
     company: "DevNauts",
-    role: "AI / Full-Stack Development Intern",
+    role: "AI Intern",
     period: "Jun 2026 – Aug 2026",
-    mode: "Remote",
+    mode: "Lahore — Remote",
     tag: "AI ENGINEERING",
     summary:
       "Worked across full-stack development and AI engineering, building the technical foundation for retrieval-augmented and intelligent application systems.",
@@ -135,7 +135,7 @@ export const experiences: Experience[] = [
     company: "Phoenux.design",
     role: "AI Product Development Intern",
     period: "Jun 2026 – Aug 2026",
-    mode: "Onsite",
+    mode: "Lahore — Onsite",
     tag: "AI PRODUCT DEVELOPMENT",
     summary:
       "Contributed to AI product development and intelligent software workflows, working across practical AI applications and product-oriented engineering tasks.",
