@@ -54,8 +54,6 @@ export function Contact() {
       id="contact"
       topLeft={["SPEC MODULE: 07_CONNECT // CONTR_SYSTEM", profile.coords]}
       topRight={["SYS. REF: 0x99F7", "PORTFOLIO STAGE: ● FINAL_DEPL"]}
-      bottomLeft="SYS_STATUS: READY_TO_TRANSMIT"
-      bottomRight="AUTH_ID: MA-2026-LET-CON"
     >
       <Reveal>
         <SectionHeading
