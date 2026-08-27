@@ -228,7 +228,7 @@ export function Contact() {
         </Reveal>
       </div>
 
-      <footer className="mt-20 grid gap-10 border-t-2 border-border pt-10 md:grid-cols-3">
+      <footer className="mt-14 grid gap-8 border-t-2 border-border pt-8 md:grid-cols-3">
         <div>
           <p className="font-display text-2xl font-extrabold">
             Muhammad Ahmad<span className="text-accent">.</span>
@@ -250,6 +250,11 @@ export function Contact() {
                 </a>
               </li>
             ))}
+            <li>
+              <a href="#education" className="text-sm text-muted-foreground hover:text-foreground">
+                Certifications
+              </a>
+            </li>
           </ul>
         </nav>
         <div>
@@ -273,9 +278,25 @@ export function Contact() {
               </a>
             ))}
           </div>
-          <p className="mono-label mt-8">© 2026 Muhammad Ahmad</p>
         </div>
       </footer>
+
+      <div className="flex flex-col items-start justify-between gap-3 border-t border-hairline py-3 sm:flex-row sm:items-center">
+        <p className="mono-label">
+          © 2026 MUHAMMAD AHMAD · SYS_STATUS: READY_TO_TRANSMIT
+        </p>
+        <div className="flex items-center gap-3">
+          <span className="mono-label hidden sm:inline">AUTH_ID: MA-2026-LET-CON</span>
+          <button
+            type="button"
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-3 py-1.5 font-mono text-[11px] tracking-[0.12em] uppercase transition-transform hover:-translate-y-0.5"
+            aria-label="Back to top"
+          >
+            <ArrowUp className="h-3.5 w-3.5" /> Top
+          </button>
+        </div>
+      </div>
     </SectionFrame>
   );
 }
