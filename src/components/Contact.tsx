@@ -1,6 +1,7 @@
 import { useState, type FormEvent } from "react";
-import { ArrowRight, CheckCircle2, Github, Linkedin, Mail, Phone, AlertCircle, Loader2 } from "lucide-react";
+import { ArrowRight, ArrowUp, CheckCircle2, Github, Linkedin, Mail, Phone, AlertCircle, Loader2 } from "lucide-react";
 import { useServerFn } from "@tanstack/react-start";
+import { toast } from "sonner";
 import { Reveal, SectionFrame, SectionHeading } from "./primitives";
 import { navItems, profile } from "@/data/portfolio";
 import { sendContactEmail } from "@/lib/contact.functions";
@@ -12,6 +13,15 @@ export function Contact() {
   const [errorMessage, setErrorMessage] = useState("");
   const [values, setValues] = useState({ name: "", email: "", message: "" });
   const send = useServerFn(sendContactEmail);
+
+  const copyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(profile.email);
+      toast.success("Email copied!", { description: profile.email });
+    } catch {
+      toast.error("Could not copy email");
+    }
+  };
 
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -44,8 +54,6 @@ export function Contact() {
       id="contact"
       topLeft={["SPEC MODULE: 07_CONNECT // CONTR_SYSTEM", profile.coords]}
       topRight={["SYS. REF: 0x99F7", "PORTFOLIO STAGE: ● FINAL_DEPL"]}
-      bottomLeft="SYS_STATUS: READY_TO_TRANSMIT"
-      bottomRight="AUTH_ID: MA-2026-LET-CON"
     >
       <Reveal>
         <SectionHeading
@@ -101,9 +109,20 @@ export function Contact() {
                 <div className="min-w-0">
                   <dt className="mono-label">{label}</dt>
                   <dd className="mt-1 truncate font-semibold">
-                    <a href={href} target={href.startsWith("http") ? "_blank" : undefined} rel="noreferrer">
-                      {value}
-                    </a>
+                    {label === "EMAIL" ? (
+                      <button
+                        type="button"
+                        onClick={copyEmail}
+                        className="hover:text-accent focus:outline-none"
+                        title="Click to copy email address"
+                      >
+                        {value}
+                      </button>
+                    ) : (
+                      <a href={href} target={href.startsWith("http") ? "_blank" : undefined} rel="noreferrer">
+                        {value}
+                      </a>
+                    )}
                   </dd>
                 </div>
                 <Icon className="h-4.5 w-4.5 shrink-0 text-muted-foreground" aria-hidden="true" />
@@ -209,7 +228,7 @@ export function Contact() {
         </Reveal>
       </div>
 
-      <footer className="mt-20 grid gap-10 border-t-2 border-border pt-10 md:grid-cols-3">
+      <footer className="mt-14 grid gap-8 border-t-2 border-border pt-8 md:grid-cols-3">
         <div>
           <p className="font-display text-2xl font-extrabold">
             Muhammad Ahmad<span className="text-accent">.</span>
@@ -231,6 +250,11 @@ export function Contact() {
                 </a>
               </li>
             ))}
+            <li>
+              <a href="#education" className="text-sm text-muted-foreground hover:text-foreground">
+                Certifications
+              </a>
+            </li>
           </ul>
         </nav>
         <div>
@@ -254,9 +278,25 @@ export function Contact() {
               </a>
             ))}
           </div>
-          <p className="mono-label mt-8">© 2026 Muhammad Ahmad</p>
         </div>
       </footer>
+
+      <div className="flex flex-col items-start justify-between gap-3 border-t border-hairline py-3 sm:flex-row sm:items-center">
+        <p className="mono-label">
+          © 2026 MUHAMMAD AHMAD · SYS_STATUS: READY_TO_TRANSMIT
+        </p>
+        <div className="flex items-center gap-3">
+          <span className="mono-label hidden sm:inline">AUTH_ID: MA-2026-LET-CON</span>
+          <button
+            type="button"
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-3 py-1.5 font-mono text-[11px] tracking-[0.12em] uppercase transition-transform hover:-translate-y-0.5"
+            aria-label="Back to top"
+          >
+            <ArrowUp className="h-3.5 w-3.5" /> Top
+          </button>
+        </div>
+      </div>
     </SectionFrame>
   );
 }
