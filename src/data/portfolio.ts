@@ -98,6 +98,7 @@ export type Experience = {
   bullets: string[];
   stack: string[];
   current?: boolean;
+  certificateUrl?: string;
 };
 
 export const experiences: Experience[] = [
@@ -129,6 +130,7 @@ export const experiences: Experience[] = [
       "Groq",
       "RAG",
     ],
+    certificateUrl: "/devnauts-certificate.pdf",
   },
   {
     company: "Phoenux.design",
@@ -138,7 +140,14 @@ export const experiences: Experience[] = [
     tag: "AI PRODUCT DEVELOPMENT",
     summary:
       "Contributed to AI product development and intelligent software workflows, working across practical AI applications and product-oriented engineering tasks.",
-    bullets: [],
+    bullets: [
+      "Collaborated closely with the product and development team, gaining hands-on exposure to AI-assisted product development workflows.",
+      "Contributed to the AI Project Management Assistant, supporting AI-assisted development.",
+      "Worked on the AI Website Audit Tool, applying AI-assisted development practices.",
+      "Built an AI-Powered Proposal Generator combining Figma-based design with Claude-driven AI development.",
+      "Worked across a range of AI tools, demonstrating strong learning agility and responsiveness to feedback.",
+    ],
+    certificateUrl: "/phoenux-certificate.pdf",
     stack: [
       "AI Applications",
       "LLM Workflows",
@@ -160,6 +169,7 @@ export const experiences: Experience[] = [
       "Collaborated remotely through Microsoft Teams for task coordination.",
     ],
     stack: ["C#", "SAGE 50", "REST APIs", "Backend Automation", "System Integration"],
+    certificateUrl: "/nepta-certificate.pdf",
   },
 ];
 

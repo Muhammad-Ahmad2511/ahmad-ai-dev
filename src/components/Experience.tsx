@@ -1,3 +1,4 @@
+import { ArrowUpRight } from "lucide-react";
 import { Reveal, SectionFrame, SectionHeading } from "./primitives";
 import { experiences } from "@/data/portfolio";
 
