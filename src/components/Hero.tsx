@@ -83,7 +83,7 @@ export function Hero() {
             <p className="mt-7 max-w-xl font-display text-xl leading-snug font-semibold text-foreground/85 sm:text-2xl">
               {profile.headline}
             </p>
-            <p classname="mt-4 inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1.5 font-mono text-[11px] tracking-[0.12em] text-muted-foreground">
+            <p className="mt-4 inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1.5 font-mono text-[11px] tracking-[0.12em] text-muted-foreground">
               <span className="h-2 w-2 rounded-full bg-accent" aria-hidden="true" />
               Based in Lahore, PK • Open for Remote Roles
             </p>
