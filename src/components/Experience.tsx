@@ -24,12 +24,18 @@ export function Experience() {
             <Reveal delay={i * 0.05}>
               <div className="grid gap-5 lg:grid-cols-[210px_minmax(0,1fr)] lg:gap-10">
                 <div className="lg:pt-1">
-                  <p className="font-mono text-sm font-bold tracking-tight text-accent">
+                  <p
+                    className={`font-mono text-sm font-bold tracking-tight ${
+                      exp.current ? "text-accent" : "text-muted-foreground"
+                    }`}
+                  >
                     {exp.period}
                   </p>
                   <span
                     className={`mt-2 inline-block rounded-md border-[1.5px] px-2.5 py-1 font-mono text-[10px] tracking-[0.14em] ${
-                      exp.current ? "border-accent text-accent" : "border-border"
+                      exp.current
+                        ? "border-accent text-accent"
+                        : "border-border text-muted-foreground"
                     }`}
                   >
                     {exp.tag}
@@ -68,6 +74,16 @@ export function Experience() {
                       </span>
                     ))}
                   </div>
+                  {exp.certificateUrl && (
+                    <a
+                      href={exp.certificateUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-5 inline-flex items-center gap-1 font-mono text-xs text-muted-foreground"
+                    >
+                      View Certificate <ArrowUpRight className="h-3.5 w-3.5" />
+                    </a>
+                  )}
                 </div>
               </div>
             </Reveal>
