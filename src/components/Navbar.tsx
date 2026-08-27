@@ -65,7 +65,15 @@ export function Navbar() {
 
         <div className="flex items-center justify-end gap-2">
           <a
-            href={`mailto:${profile.email}`}
+            href="#contact"
+            onClick={(e) => {
+              e.preventDefault();
+              const el = document.querySelector("#contact");
+              if (el) {
+                const top = el.getBoundingClientRect().top + window.scrollY - 80;
+                window.scrollTo({ top, behavior: "smooth" });
+              }
+            }}
             className="hidden rounded-full border-2 border-border bg-accent px-5 py-2 text-sm font-semibold text-accent-foreground shadow-[3px_3px_0_0_var(--border)] transition-transform hover:-translate-y-0.5 sm:inline-block"
           >
             Hire Me
