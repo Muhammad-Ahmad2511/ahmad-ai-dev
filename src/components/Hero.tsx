@@ -85,7 +85,7 @@ export function Hero() {
             </p>
             <p className="mt-4 inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1.5 font-mono text-[11px] tracking-[0.12em] text-muted-foreground">
               <span className="h-2 w-2 rounded-full bg-accent" aria-hidden="true" />
-              Based in Lahore, PK • Open for Remote Roles
+              Based in Lahore, PK • Open for Remote / Onsite Roles
             </p>
             <p className="mt-5 max-w-xl leading-relaxed text-muted-foreground">
               {profile.supporting} at FAST-NUCES Lahore. I architect production-grade AI systems —
