@@ -1,5 +1,5 @@
 import { useState, type FormEvent } from "react";
-import { ArrowRight, ArrowUp, CheckCircle2, Github, Linkedin, Mail, Phone, AlertCircle, Loader2 } from "lucide-react";
+import { ArrowRight, CheckCircle2, Github, Linkedin, Mail, Phone, AlertCircle, Loader2 } from "lucide-react";
 import { useServerFn } from "@tanstack/react-start";
 import { toast } from "sonner";
 import { Reveal, SectionFrame, SectionHeading } from "./primitives";
@@ -282,20 +282,16 @@ export function Contact() {
       </footer>
 
       <div className="flex flex-col items-start justify-between gap-3 border-t border-hairline py-3 sm:flex-row sm:items-center">
-        <p className="mono-label">
-          © 2026 MUHAMMAD AHMAD · SYS_STATUS: READY_TO_TRANSMIT
+        <p className="mono-label flex flex-wrap items-center gap-x-2">
+          <span>© 2026 MUHAMMAD AHMAD • BASED IN LAHORE, PK •</span>
+          <span className="inline-flex items-center gap-1.5 text-foreground">
+            <span className="relative flex h-2 w-2" aria-hidden="true">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
+            </span>
+            OPEN FOR REMOTE / ONSITE ROLES
+          </span>
         </p>
-        <div className="flex items-center gap-3">
-          <span className="mono-label hidden sm:inline">AUTH_ID: MA-2026-LET-CON</span>
-          <button
-            type="button"
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-3 py-1.5 font-mono text-[11px] tracking-[0.12em] uppercase transition-transform hover:-translate-y-0.5"
-            aria-label="Back to top"
-          >
-            <ArrowUp className="h-3.5 w-3.5" /> Top
-          </button>
-        </div>
       </div>
     </SectionFrame>
   );

@@ -7,6 +7,7 @@ import { Projects } from "@/components/Projects";
 import { TechnicalStack } from "@/components/TechnicalStack";
 import { Education } from "@/components/Education";
 import { Contact } from "@/components/Contact";
+import { BackToTop } from "@/components/BackToTop";
 
 const title = "Muhammad Ahmad — AI/ML Engineer";
 const description =
@@ -42,6 +43,7 @@ function Home() {
         <Education />
         <Contact />
       </main>
+      <BackToTop />
     </>
   );
 }
