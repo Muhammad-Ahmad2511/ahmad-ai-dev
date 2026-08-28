@@ -43,6 +43,7 @@ function Home() {
         <Education />
         <Contact />
       </main>
+      <BackToTop />
     </>
   );
 }
