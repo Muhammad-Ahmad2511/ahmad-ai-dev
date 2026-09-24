@@ -42,8 +42,7 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
         )}
 
         <div className="mt-5 rounded-lg border border-hairline bg-secondary/60 p-3">
-          <p className="mono-label">System Architecture Pipeline Schema</p>
-          <div className="mt-3 flex flex-wrap items-center gap-2">
+          <div className="flex flex-wrap items-center gap-2">
             {project.pipeline.map((p, i) => (
               <div key={p.label} className="flex items-center gap-2">
                 <div className="rounded-md border-[1.5px] border-accent bg-card px-2.5 py-1.5">
