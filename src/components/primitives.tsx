@@ -37,18 +37,10 @@ export function SectionFrame({
   id,
   children,
   className,
-  topLeft,
-  topRight,
-  bottomLeft,
-  bottomRight,
 }: {
   id: string;
   children: ReactNode;
   className?: string;
-  topLeft?: string[];
-  topRight?: string[];
-  bottomLeft?: string;
-  bottomRight?: string;
 }) {
   return (
     <section
@@ -56,31 +48,7 @@ export function SectionFrame({
       className={cn("relative border-t border-hairline tech-grid overflow-hidden", className)}
     >
       <div className="mx-auto w-full max-w-[1400px] px-5 sm:px-8 lg:px-12">
-        {(topLeft || topRight) && (
-          <div className="hidden gap-4 pt-6 md:flex md:items-start md:justify-between">
-            <div className="space-y-0.5">
-              {topLeft?.map((t) => (
-                <p key={t} className="mono-label">
-                  {t}
-                </p>
-              ))}
-            </div>
-            <div className="space-y-0.5 text-right">
-              {topRight?.map((t) => (
-                <p key={t} className="mono-label">
-                  {t}
-                </p>
-              ))}
-            </div>
-          </div>
-        )}
         <div className="py-16 sm:py-20 lg:py-28">{children}</div>
-        {(bottomLeft || bottomRight) && (
-          <div className="hidden items-center justify-between border-t border-hairline py-4 md:flex">
-            <p className="mono-label">{bottomLeft}</p>
-            <p className="mono-label">{bottomRight}</p>
-          </div>
-        )}
       </div>
     </section>
   );

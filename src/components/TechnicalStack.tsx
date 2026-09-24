@@ -4,13 +4,7 @@ import { pipelineFlow, stackGroups } from "@/data/portfolio";
 
 export function TechnicalStack() {
   return (
-    <SectionFrame
-      id="skills"
-      topLeft={["SPEC MODULE: 05_TECH_STACK"]}
-      topRight={["SYS. REF: 0x99D5", "STACK STATUS: ● ACTIVE"]}
-      bottomLeft="MODULE: TECH_STACK"
-      bottomRight="STATUS: ACTIVE"
-    >
+    <SectionFrame id="skills">
       <Reveal>
         <SectionHeading
           title="Tools I Use to Build Intelligent Systems"
@@ -42,8 +36,7 @@ export function TechnicalStack() {
 
       <Reveal delay={0.1}>
         <div className="mt-12 rounded-xl border border-hairline bg-secondary/50 p-6">
-          <p className="mono-label">// Pipeline Architecture Flow</p>
-          <div className="mt-5 flex flex-wrap items-center gap-3">
+          <div className="flex flex-wrap items-center gap-3">
             {pipelineFlow.map((p, i) => (
               <div key={p.no} className="flex items-center gap-3">
                 <div className="rounded-md border-[1.5px] border-border bg-card px-4 py-3">

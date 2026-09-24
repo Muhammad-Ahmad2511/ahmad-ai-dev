@@ -17,11 +17,11 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
       <div className="flex flex-1 flex-col p-6">
         <div className="flex flex-wrap items-center justify-between gap-2">
           <p className="font-mono text-[11px] tracking-[0.14em] text-muted-foreground">
-            <span className="text-accent">{project.index}</span> // {project.category}
+            {project.category}
           </p>
           {project.featured && (
             <span className="rounded-md bg-accent px-2 py-1 font-mono text-[9px] font-bold tracking-[0.12em] text-accent-foreground">
-              {project.featured}
+              {project.featured.replace("FEATURED // ", "Featured · ")}
             </span>
           )}
         </div>
@@ -42,8 +42,7 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
         )}
 
         <div className="mt-5 rounded-lg border border-hairline bg-secondary/60 p-3">
-          <p className="mono-label">System Architecture Pipeline Schema</p>
-          <div className="mt-3 flex flex-wrap items-center gap-2">
+          <div className="flex flex-wrap items-center gap-2">
             {project.pipeline.map((p, i) => (
               <div key={p.label} className="flex items-center gap-2">
                 <div className="rounded-md border-[1.5px] border-accent bg-card px-2.5 py-1.5">
