@@ -4,13 +4,7 @@ import { experiences } from "@/data/portfolio";
 
 export function Experience() {
   return (
-    <SectionFrame
-      id="experience"
-      topLeft={["SYS. REF: 0x99C5 // PROFESSIONAL_TIMELINE"]}
-      topRight={["SCALE. 1:1.0", "SHEET: A3"]}
-      bottomLeft="MODULE: EXPERIENCE"
-      bottomRight="STATUS: VERIFIED"
-    >
+    <SectionFrame id="experience">
       <Reveal>
         <SectionHeading
           title="Experience That Shaped My Engineering Approach"
@@ -92,7 +86,7 @@ export function Experience() {
       </ol>
 
       <Reveal delay={0.1}>
-        <div className="mt-14 grid gap-5 rounded-xl border-2 border-border bg-card p-6 shadow-[5px_5px_0_0_var(--border)] lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center">
+        <div className="mt-14 rounded-xl border-2 border-border bg-card p-6 shadow-[5px_5px_0_0_var(--border)]">
           <div className="min-w-0">
             <p className="font-display text-lg font-bold uppercase">
               From Backend Automation to AI Systems
@@ -102,9 +96,6 @@ export function Experience() {
               machine learning, retrieval, software engineering, and real-world applications.
             </p>
           </div>
-          <span className="justify-self-start rounded-md border-[1.5px] border-accent px-3 py-2 font-mono text-[10px] tracking-[0.14em] text-accent">
-            CURRENT DIRECTION // AI / ML ENGINEERING
-          </span>
         </div>
       </Reveal>
     </SectionFrame>

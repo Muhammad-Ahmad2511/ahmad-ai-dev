@@ -50,11 +50,7 @@ export function Contact() {
 
 
   return (
-    <SectionFrame
-      id="contact"
-      topLeft={["SPEC MODULE: 07_CONNECT // CONTR_SYSTEM", profile.coords]}
-      topRight={["SYS. REF: 0x99F7", "PORTFOLIO STAGE: ● FINAL_DEPL"]}
-    >
+    <SectionFrame id="contact">
       <Reveal>
         <SectionHeading
           title="Let's Build Something Intelligent."
@@ -219,11 +215,6 @@ export function Contact() {
 
             </form>
 
-            <div className="mt-7 flex flex-wrap items-center justify-between gap-3 border-t border-hairline pt-4">
-              <span className="mono-label">CONTACT_PROTOCOL: ONLINE</span>
-              <span className="mono-label">STATUS: OPEN</span>
-              <span className="mono-label">INPUTS: 03</span>
-            </div>
           </div>
         </Reveal>
       </div>

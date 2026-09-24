@@ -17,11 +17,11 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
       <div className="flex flex-1 flex-col p-6">
         <div className="flex flex-wrap items-center justify-between gap-2">
           <p className="font-mono text-[11px] tracking-[0.14em] text-muted-foreground">
-            <span className="text-accent">{project.index}</span> // {project.category}
+            {project.category}
           </p>
           {project.featured && (
             <span className="rounded-md bg-accent px-2 py-1 font-mono text-[9px] font-bold tracking-[0.12em] text-accent-foreground">
-              {project.featured}
+              {project.featured.replace("FEATURED // ", "Featured · ")}
             </span>
           )}
         </div>

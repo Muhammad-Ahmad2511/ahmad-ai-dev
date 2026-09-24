@@ -9,13 +9,7 @@ export function Projects() {
   const visible = filter === "ALL" ? projects : projects.filter((p) => p.filter === filter);
 
   return (
-    <SectionFrame
-      id="projects"
-      topLeft={["SPEC MODULE: 04_SYSTEM_WORK"]}
-      topRight={["SYS. REF: 0x99D4", "BUILD YEAR: 2026"]}
-      bottomLeft="MODULE: PROJECTS"
-      bottomRight="STATUS: SHIPPED"
-    >
+    <SectionFrame id="projects">
       <Reveal>
         <SectionHeading
           title="Engineering Ideas Into Working Systems"
@@ -24,10 +18,7 @@ export function Projects() {
       </Reveal>
 
       <Reveal delay={0.05}>
-        <p className="mono-label mt-10 border-b border-hairline pb-3">
-          9 PROJECTS // AI / ML · GENERATIVE AI · DATA · FULL STACK
-        </p>
-        <div className="mt-6 flex flex-wrap gap-2.5" role="tablist" aria-label="Project categories">
+        <div className="mt-10 flex flex-wrap gap-2.5" role="tablist" aria-label="Project categories">
           {projectFilters.map((f) => (
             <button
               key={f}

@@ -4,13 +4,7 @@ import profileAsset from "@/assets/profile.jpg";
 
 export function About() {
   return (
-    <SectionFrame
-      id="about"
-      topLeft={["SYS.REF: 0x99B4 // ABOUT_ME", profile.coords]}
-      topRight={["SCALE 1:1.0", "SHEET: A2"]}
-      bottomLeft="MODULE: ABOUT"
-      bottomRight="SYSTEM: AI/ML"
-    >
+    <SectionFrame id="about">
       <Reveal>
         <SectionHeading
           kicker="Who I Am"
@@ -21,12 +15,6 @@ export function About() {
 
       <div className="mt-14 grid gap-10 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.5fr)] lg:gap-14">
         <Reveal>
-          <div className="flex items-center justify-between pb-3">
-            <span className="mono-label">// PROFILE_MODULE</span>
-            <span className="flex items-center gap-1.5 font-mono text-[11px] tracking-[0.14em] uppercase">
-              <span className="h-1.5 w-1.5 rounded-full bg-accent" /> Active
-            </span>
-          </div>
           <div className="overflow-hidden rounded-xl border-2 border-border shadow-[5px_5px_0_0_var(--border)]">
             <img
               src={profileAsset}
@@ -40,7 +28,6 @@ export function About() {
           </div>
           <p className="mt-4 font-display text-lg font-bold">{profile.name}</p>
           <p className="font-mono text-xs tracking-[0.14em] text-accent uppercase">{profile.role}</p>
-          <p className="mono-label mt-1">SYS_ID: MA-2511 · LOC: LAHORE · UPD: 2026</p>
         </Reveal>
 
         <div className="min-w-0 space-y-12">
