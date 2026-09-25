@@ -19,18 +19,12 @@ export function Experience() {
               <div className="grid gap-5 lg:grid-cols-[210px_minmax(0,1fr)] lg:gap-10">
                 <div className="lg:pt-1">
                   <p
-                    className={`font-mono text-sm font-bold tracking-tight ${
-                      exp.current ? "text-accent" : "text-muted-foreground"
-                    }`}
+                    className={`font-mono text-sm font-bold tracking-tight exp-charcoal`}
                   >
                     {exp.period}
                   </p>
                   <span
-                    className={`mt-2 inline-block rounded-md border-[1.5px] px-2.5 py-1 font-mono text-[10px] tracking-[0.14em] ${
-                      exp.current
-                        ? "border-accent text-accent"
-                        : "border-border text-muted-foreground"
-                    }`}
+                    className="exp-pill mt-2 rounded-md px-2.5 py-1 font-mono text-[10px] tracking-[0.14em]"
                   >
                     {exp.tag}
                   </span>
@@ -43,18 +37,18 @@ export function Experience() {
                     }`}
                     aria-hidden="true"
                   />
-                  <h3 className="text-xl sm:text-2xl">{exp.role}</h3>
+                  <h3 className="exp-role text-xl sm:text-2xl">{exp.role}</h3>
                   <p className="mt-1 text-sm">
-                    <span className="font-bold">{exp.company}</span>
-                    <span className="text-muted-foreground"> · {exp.mode}</span>
+                    <span className="font-bold text-foreground">{exp.company}</span>
+                    <span className="exp-charcoal"> · {exp.mode}</span>
                   </p>
-                  <p className="mt-4 max-w-3xl text-sm leading-relaxed text-muted-foreground">
+                  <p className="exp-charcoal mt-4 max-w-3xl text-sm leading-relaxed">
                     {exp.summary}
                   </p>
                   {exp.bullets.length > 0 && (
                     <ul className="mt-4 max-w-3xl space-y-2">
                       {exp.bullets.map((b) => (
-                        <li key={b} className="flex gap-3 text-sm text-muted-foreground">
+                        <li key={b} className="exp-charcoal flex gap-3 text-sm">
                           <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
                           <span>{b}</span>
                         </li>
@@ -63,7 +57,7 @@ export function Experience() {
                   )}
                   <div className="mt-5 flex flex-wrap gap-2">
                     {exp.stack.map((s) => (
-                      <span key={s} className="chip border-hairline text-muted-foreground">
+                      <span key={s} className="exp-pill">
                         {s}
                       </span>
                     ))}
@@ -73,7 +67,7 @@ export function Experience() {
                       href={exp.certificateUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="mt-5 inline-flex items-center gap-1 font-mono text-xs text-muted-foreground"
+                      className="exp-role mt-5 inline-flex items-center gap-1 font-mono text-xs"
                     >
                       View Certificate <ArrowUpRight className="h-3.5 w-3.5" />
                     </a>
