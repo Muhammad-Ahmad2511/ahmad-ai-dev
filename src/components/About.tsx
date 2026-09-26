@@ -50,18 +50,6 @@ export function About() {
           </Reveal>
 
           <Reveal delay={0.1}>
-            <h3 className="text-2xl">AI Engineering Approach</h3>
-            <ul className="mt-5 space-y-5">
-              {approach.map((a) => (
-                <li key={a.title} className="border-l-2 border-border pl-4">
-                  <p className="text-sm font-bold">{a.title}</p>
-                  <p className="mt-1 text-sm text-muted-foreground">{a.body}</p>
-                </li>
-              ))}
-            </ul>
-          </Reveal>
-
-          <Reveal delay={0.15}>
             <div className="rounded-xl border-2 border-border bg-card p-6 shadow-[5px_5px_0_0_var(--border)]">
               <p className="flex items-center gap-2 font-mono text-[11px] tracking-[0.16em] text-accent uppercase">
                 <span className="h-2 w-2 rounded-full bg-accent" /> Currently Building
