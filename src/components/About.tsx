@@ -1,5 +1,5 @@
 import { Reveal, SectionFrame, SectionHeading } from "./primitives";
-import { approach, currentlyBuilding, keyDetails, principles, profile } from "@/data/portfolio";
+import { currentlyBuilding, keyDetails, principles, profile } from "@/data/portfolio";
 import profileAsset from "@/assets/profile.jpg";
 
 export function About() {
