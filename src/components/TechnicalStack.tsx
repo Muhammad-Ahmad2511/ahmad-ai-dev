@@ -1,6 +1,5 @@
-import { ArrowRight } from "lucide-react";
 import { Chip, Reveal, SectionFrame, SectionHeading } from "./primitives";
-import { pipelineFlow, stackGroups } from "@/data/portfolio";
+import { stackGroups } from "@/data/portfolio";
 
 export function TechnicalStack() {
   return (
@@ -34,25 +33,6 @@ export function TechnicalStack() {
         ))}
       </div>
 
-      <Reveal delay={0.1}>
-        <div className="mt-12 rounded-xl border border-hairline bg-secondary/50 p-6">
-          <div className="flex flex-wrap items-center gap-3">
-            {pipelineFlow.map((p, i) => (
-              <div key={p.no} className="flex items-center gap-3">
-                <div className="rounded-md border-[1.5px] border-border bg-card px-4 py-3">
-                  <p className="font-mono text-[11px] font-bold tracking-[0.1em] text-accent">
-                    {p.no} / {p.title}
-                  </p>
-                  <p className="mt-1 text-xs text-muted-foreground">{p.sub}</p>
-                </div>
-                {i < pipelineFlow.length - 1 && (
-                  <ArrowRight className="h-4 w-4 shrink-0 text-muted-foreground" />
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-      </Reveal>
     </SectionFrame>
   );
 }
