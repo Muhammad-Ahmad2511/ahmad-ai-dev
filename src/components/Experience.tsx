@@ -78,20 +78,6 @@ export function Experience() {
           </li>
         ))}
       </ol>
-
-      <Reveal delay={0.1}>
-        <div className="mt-14 rounded-xl border-2 border-border bg-card p-6 shadow-[5px_5px_0_0_var(--border)]">
-          <div className="min-w-0">
-            <p className="font-display text-lg font-bold uppercase">
-              From Backend Automation to AI Systems
-            </p>
-            <p className="mt-2 max-w-2xl text-sm text-muted-foreground">
-              My experience has gradually moved toward building intelligent systems that combine
-              machine learning, retrieval, software engineering, and real-world applications.
-            </p>
-          </div>
-        </div>
-      </Reveal>
     </SectionFrame>
   );
 }
