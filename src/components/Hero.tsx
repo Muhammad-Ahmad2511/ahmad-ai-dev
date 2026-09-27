@@ -96,7 +96,7 @@ export function Hero() {
                 View Featured Projects <ArrowRight className="h-4 w-4" />
               </a>
               <a
-                href="/resume.pdf"
+                href="/Muhammad Ahmad_resume.pdf"
                 download
                 className="inline-flex items-center gap-2 rounded-full border-2 border-border bg-card px-6 py-3 text-sm font-semibold shadow-[4px_4px_0_0_var(--border)] transition-transform hover:-translate-y-0.5"
               >
