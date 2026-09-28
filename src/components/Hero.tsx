@@ -8,12 +8,12 @@ const ThreeAIVisualization = lazy(() => import("./ThreeAIVisualization"));
 // ... existing imports ...
 
 const badges = [
-  { text: "EXPLAINABLE AI", style: { left: '6%', top: '2%' }, zIndex: 1 },
-  { text: "LLM SYSTEMS", style: { left: '40%', top: '13%' }, zIndex: 1 },
-  { text: "RAG", style: { left: '78%', top: '4%' }, zIndex: 1 },
-  { text: "VECTOR SEARCH", style: { left: '38%', top: '64%' }, zIndex: 1 },
-  { text: "PRODUCTION ML", style: { left: '22%', top: '95%' }, zIndex: 1 },
-  { text: "FULL STACK AI", style: { left: '78%', top: '86%' }, zIndex: 1 },
+  { text: "EXPLAINABLE AI", pos: "left-2 top-1 lg:left-[6%] lg:top-[2%]", zIndex: 1 },
+  { text: "LLM SYSTEMS", pos: "left-[40%] top-1 lg:left-[40%] lg:top-[13%]", zIndex: 1 },
+  { text: "RAG", pos: "right-2 top-1 lg:left-[78%] lg:top-[4%]", zIndex: 1 },
+  { text: "VECTOR SEARCH", pos: "left-2 top-[22px] lg:left-[38%] lg:top-[64%]", zIndex: 1 },
+  { text: "PRODUCTION ML", pos: "left-[40%] top-[22px] lg:left-[22%] lg:top-[95%]", zIndex: 1 },
+  { text: "FULL STACK AI", pos: "right-2 top-[22px] lg:left-[78%] lg:top-[86%]", zIndex: 1 },
 ];
 
 
