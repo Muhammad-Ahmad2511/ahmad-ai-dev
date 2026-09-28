@@ -16,30 +16,6 @@ const badges = [
   { text: "FULL STACK AI", pos: "lg:left-[78%] lg:top-[86%]", zIndex: 1 },
 ];
 
-const badgeDrift = (index: number) => ({
-  xDrift: index % 2 === 0 ? 8 : -8,  // Alternate left/right drift
-  yDrift: index % 3 === 0 ? 6 : -6,  // Staggered vertical drift
-  duration: 6 + index * 1.5,         // Different durations per badge
-  delay: index * 0.5,                // Staggered start times
-});
-
-function Badge({ text, drift }: { text: string; drift: number }) {
-  return (
-    <motion.span
-      className="w-max whitespace-nowrap rounded-full border-[1.5px] border-accent bg-background px-2 py-0.5 font-mono text-[8px] tracking-[0.16em] text-accent sm:px-3 sm:py-1 sm:text-[10px]"
-      initial={{ y: -2, x: 0 }}
-      animate={{
-        y: [0, drift, -drift, 0],
-        x: [0, drift, -drift, 0],
-      }}
-      transition={{ duration: 6 + drift, delay: 0.5, repeat: Infinity, ease: "easeInOut" }}
-    >
-      {text}
-    </motion.span>
-  );
-}
-
-
 export function Hero() {
   const reduce = useReducedMotion();
 
