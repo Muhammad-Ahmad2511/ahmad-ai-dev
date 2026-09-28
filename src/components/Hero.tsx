@@ -36,8 +36,8 @@ export function Hero() {
               return (
                 <motion.span
                   key={b.text}
-                  className="absolute rounded-full border-[1.5px] border-accent bg-background px-2 py-0.5 font-mono text-[8px] tracking-[0.16em] text-accent sm:px-3 sm:py-1 sm:text-[10px]"
-                  style={{ ...b.style, zIndex: b.zIndex }}
+                  className={`absolute rounded-full border-[1.5px] border-accent bg-background px-2 py-0.5 font-mono text-[8px] tracking-[0.16em] text-accent sm:px-3 sm:py-1 sm:text-[10px] ${b.pos}`}
+                  style={{ zIndex: b.zIndex }}
                   initial={{ y: -2, x: 0 }}
                   animate={{
                     y: [0, yDrift, -yDrift, 0],
