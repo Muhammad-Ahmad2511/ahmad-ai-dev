@@ -16,6 +16,13 @@ const badges = [
   { text: "FULL STACK AI", pos: "lg:left-[78%] lg:top-[86%]", zIndex: 1 },
 ];
 
+const badgeDrift = (index: number) => ({
+  xDrift: index % 2 === 0 ? 8 : -8,  // Alternate left/right drift
+  yDrift: index % 3 === 0 ? 6 : -6,  // Staggered vertical drift
+  duration: 6 + index * 1.5,         // Different durations per badge
+  delay: index * 0.5,                // Staggered start times
+});
+
 export function Hero() {
   const reduce = useReducedMotion();
 
