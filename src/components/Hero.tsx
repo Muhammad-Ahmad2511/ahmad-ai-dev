@@ -8,12 +8,12 @@ const ThreeAIVisualization = lazy(() => import("./ThreeAIVisualization"));
 // ... existing imports ...
 
 const badges = [
-  { text: "EXPLAINABLE AI", pos: "lg:left-[6%] lg:top-[2%]", zIndex: 1 },
-  { text: "LLM SYSTEMS", pos: "lg:left-[40%] lg:top-[13%]", zIndex: 1 },
-  { text: "RAG", pos: "lg:left-[78%] lg:top-[4%]", zIndex: 1 },
-  { text: "VECTOR SEARCH", pos: "lg:left-[38%] lg:top-[64%]", zIndex: 1 },
-  { text: "PRODUCTION ML", pos: "lg:left-[22%] lg:top-[95%]", zIndex: 1 },
-  { text: "FULL STACK AI", pos: "lg:left-[78%] lg:top-[86%]", zIndex: 1 },
+  { text: "EXPLAINABLE AI", pos: "lg:left-[6%] lg:top-[2%]", mobilePos: "left-[4%] top-[3%]", zIndex: 1 },
+  { text: "LLM SYSTEMS", pos: "lg:left-[40%] lg:top-[13%]", mobilePos: "left-[58%] top-[19%]", zIndex: 1 },
+  { text: "RAG", pos: "lg:left-[78%] lg:top-[4%]", mobilePos: "left-[8%] top-[36%]", zIndex: 1 },
+  { text: "VECTOR SEARCH", pos: "lg:left-[38%] lg:top-[64%]", mobilePos: "left-[55%] top-[52%]", zIndex: 1 },
+  { text: "PRODUCTION ML", pos: "lg:left-[22%] lg:top-[95%]", mobilePos: "left-[5%] top-[70%]", zIndex: 1 },
+  { text: "FULL STACK AI", pos: "lg:left-[78%] lg:top-[86%]", mobilePos: "left-[57%] top-[89%]", zIndex: 1 },
 ];
 
 const badgeDrift = (index: number) => ({
@@ -58,24 +58,39 @@ export function Hero() {
             })}
           </div>
 
+          {/* Mobile: compact badges scattered through the full hero height */}
+          <div className="pointer-events-none absolute inset-0 z-0 lg:hidden" aria-hidden="true">
+            {badges.map((b, index) => {
+              const { xDrift, yDrift, duration, delay } = badgeDrift(index);
+
+              return (
+                <motion.span
+                  key={b.text}
+                  className={`absolute w-max whitespace-nowrap rounded-full border-[1.5px] border-accent bg-background/90 px-2 py-0.5 font-mono text-[8px] tracking-[0.12em] text-accent ${b.mobilePos}`}
+                  initial={{ opacity: 0, y: 0, x: 0 }}
+                  animate={{
+                    opacity: 0.82,
+                    y: reduce ? 0 : [0, yDrift / 2, -yDrift / 2, 0],
+                    x: reduce ? 0 : [0, xDrift / 2, -xDrift / 2, 0],
+                  }}
+                  transition={{
+                    opacity: { duration: reduce ? 0.01 : 0.5, delay: delay / 2 },
+                    y: { duration, delay, repeat: Infinity, ease: "easeInOut" },
+                    x: { duration, delay, repeat: Infinity, ease: "easeInOut" },
+                  }}
+                >
+                  {b.text}
+                </motion.span>
+              );
+            })}
+          </div>
+
           <motion.div
             initial={{ opacity: 0, y: reduce ? 0 : 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: reduce ? 0.01 : 0.7, ease: [0.22, 1, 0.36, 1] }}
             className="relative z-10 min-w-0 lg:pt-20"
           >
-            {/* Mobile: simple wrapped badge row above the title */}
-            <div className="mb-5 flex w-max max-w-full flex-wrap gap-2 lg:hidden">
-              {badges.map((b) => (
-                <span
-                  key={b.text}
-                  className="w-max whitespace-nowrap rounded-full border-[1.5px] border-accent bg-background px-2 py-0.5 font-mono text-[8px] tracking-[0.16em] text-accent"
-                >
-                  {b.text}
-                </span>
-              ))}
-            </div>
-
             <div className="flex items-center gap-3">
               <span className="h-3.5 w-24 bg-accent sm:w-40" aria-hidden="true" />
               <span className="font-mono text-xs font-bold tracking-[0.2em] uppercase">
