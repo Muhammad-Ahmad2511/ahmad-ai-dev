@@ -8,14 +8,20 @@ const ThreeAIVisualization = lazy(() => import("./ThreeAIVisualization"));
 // ... existing imports ...
 
 const badges = [
-  { text: "EXPLAINABLE AI", pos: "left-2 top-1 lg:left-[6%] lg:top-[2%]", zIndex: 1 },
-  { text: "LLM SYSTEMS", pos: "left-[40%] top-1 lg:left-[40%] lg:top-[13%]", zIndex: 1 },
-  { text: "RAG", pos: "right-2 top-1 lg:left-[78%] lg:top-[4%]", zIndex: 1 },
-  { text: "VECTOR SEARCH", pos: "left-2 top-[22px] lg:left-[38%] lg:top-[64%]", zIndex: 1 },
-  { text: "PRODUCTION ML", pos: "left-[40%] top-[22px] lg:left-[22%] lg:top-[95%]", zIndex: 1 },
-  { text: "FULL STACK AI", pos: "right-2 top-[22px] lg:left-[78%] lg:top-[86%]", zIndex: 1 },
+  { text: "EXPLAINABLE AI", pos: "lg:left-[6%] lg:top-[2%]", zIndex: 1 },
+  { text: "LLM SYSTEMS", pos: "lg:left-[40%] lg:top-[13%]", zIndex: 1 },
+  { text: "RAG", pos: "lg:left-[78%] lg:top-[4%]", zIndex: 1 },
+  { text: "VECTOR SEARCH", pos: "lg:left-[38%] lg:top-[64%]", zIndex: 1 },
+  { text: "PRODUCTION ML", pos: "lg:left-[22%] lg:top-[95%]", zIndex: 1 },
+  { text: "FULL STACK AI", pos: "lg:left-[78%] lg:top-[86%]", zIndex: 1 },
 ];
 
+const badgeDrift = (index: number) => ({
+  xDrift: index % 2 === 0 ? 8 : -8,  // Alternate left/right drift
+  yDrift: index % 3 === 0 ? 6 : -6,  // Staggered vertical drift
+  duration: 6 + index * 1.5,         // Different durations per badge
+  delay: index * 0.5,                // Staggered start times
+});
 
 export function Hero() {
   const reduce = useReducedMotion();
@@ -24,19 +30,15 @@ export function Hero() {
     <section id="home" className="relative tech-grid overflow-hidden pt-24 sm:pt-28">
       <div className="mx-auto w-full max-w-[1400px] px-5 sm:px-8 lg:px-12">
         <div className="relative grid items-center gap-12 py-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:gap-14 lg:py-14">
-          {/* Decorative badges (kept clear of content) */}
-          <div className="pointer-events-none absolute inset-0">
+          {/* Desktop: floating badges over the grid (original absolute layout) */}
+          <div className="pointer-events-none absolute inset-0 hidden lg:block">
             {badges.map((b, index) => {
-              // Create unique animation variations for each badge
-              const xDrift = index % 2 === 0 ? 8 : -8;  // Alternate left/right drift
-              const yDrift = index % 3 === 0 ? 6 : -6;  // Staggered vertical drift
-              const duration = 6 + index * 1.5;  // Different durations per badge
-              const delay = index * 0.5;  // Staggered start times
+              const { xDrift, yDrift, duration, delay } = badgeDrift(index);
 
               return (
                 <motion.span
                   key={b.text}
-                  className={`absolute rounded-full border-[1.5px] border-accent bg-background px-2 py-0.5 font-mono text-[8px] tracking-[0.16em] text-accent sm:px-3 sm:py-1 sm:text-[10px] ${b.pos}`}
+                  className={`absolute w-max whitespace-nowrap rounded-full border-[1.5px] border-accent bg-background px-2 py-0.5 font-mono text-[8px] tracking-[0.16em] text-accent sm:px-3 sm:py-1 sm:text-[10px] ${b.pos}`}
                   style={{ zIndex: b.zIndex }}
                   initial={{ y: -2, x: 0 }}
                   animate={{
@@ -62,6 +64,18 @@ export function Hero() {
             transition={{ duration: reduce ? 0.01 : 0.7, ease: [0.22, 1, 0.36, 1] }}
             className="relative z-10 min-w-0 lg:pt-20"
           >
+            {/* Mobile: simple wrapped badge row above the title */}
+            <div className="mb-5 flex w-max max-w-full flex-wrap gap-2 lg:hidden">
+              {badges.map((b) => (
+                <span
+                  key={b.text}
+                  className="w-max whitespace-nowrap rounded-full border-[1.5px] border-accent bg-background px-2 py-0.5 font-mono text-[8px] tracking-[0.16em] text-accent"
+                >
+                  {b.text}
+                </span>
+              ))}
+            </div>
+
             <div className="flex items-center gap-3">
               <span className="h-3.5 w-24 bg-accent sm:w-40" aria-hidden="true" />
               <span className="font-mono text-xs font-bold tracking-[0.2em] uppercase">
