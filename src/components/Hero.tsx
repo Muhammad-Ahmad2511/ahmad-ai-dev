@@ -25,7 +25,7 @@ export function Hero() {
       <div className="mx-auto w-full max-w-[1400px] px-5 sm:px-8 lg:px-12">
         <div className="relative grid items-center gap-12 py-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:gap-14 lg:py-14">
           {/* Decorative badges (kept clear of content) */}
-          <div className="pointer-events-none absolute inset-0 hidden lg:block">
+          <div className="pointer-events-none absolute inset-0">
             {badges.map((b, index) => {
               // Create unique animation variations for each badge
               const xDrift = index % 2 === 0 ? 8 : -8;  // Alternate left/right drift
@@ -36,7 +36,7 @@ export function Hero() {
               return (
                 <motion.span
                   key={b.text}
-                  className="absolute rounded-full border-[1.5px] border-accent bg-background px-3 py-1 font-mono text-[10px] tracking-[0.16em] text-accent"
+                  className="absolute rounded-full border-[1.5px] border-accent bg-background px-2 py-0.5 font-mono text-[8px] tracking-[0.16em] text-accent sm:px-3 sm:py-1 sm:text-[10px]"
                   style={{ ...b.style, zIndex: b.zIndex }}
                   initial={{ y: -2, x: 0 }}
                   animate={{
