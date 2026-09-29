@@ -33,7 +33,7 @@ export function Hero() {
         {badges.map((b) => (
           <span
             key={b.text}
-            className={`absolute w-max whitespace-nowrap rounded-full border-[1.5px] border-accent bg-background/90 px-2 py-0.5 font-mono text-[8px] tracking-[0.12em] text-accent opacity-80 ${b.mobilePos}`}
+            className={`absolute w-max whitespace-nowrap rounded-full border-[1.5px] border-expertise-border bg-expertise-background px-2 py-0.5 font-mono text-[8px] tracking-[0.12em] text-expertise-foreground opacity-80 ${b.mobilePos}`}
           >
             {b.text}
           </span>
@@ -50,7 +50,7 @@ export function Hero() {
               return (
                 <motion.span
                   key={b.text}
-                  className={`absolute w-max whitespace-nowrap rounded-full border-[1.5px] border-accent bg-background px-2 py-0.5 font-mono text-[8px] tracking-[0.16em] text-accent sm:px-3 sm:py-1 sm:text-[10px] ${b.pos}`}
+                  className={`absolute w-max whitespace-nowrap rounded-full border-[1.5px] border-expertise-border bg-expertise-background px-2 py-0.5 font-mono text-[8px] tracking-[0.16em] text-expertise-foreground sm:px-3 sm:py-1 sm:text-[10px] ${b.pos}`}
                   style={{ zIndex: b.zIndex }}
                   initial={{ y: -2, x: 0 }}
                   animate={{

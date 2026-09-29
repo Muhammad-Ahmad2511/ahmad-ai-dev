@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { navItems, profile } from "@/data/portfolio";
 import { cn } from "@/lib/utils";
+import { ThemeToggle } from "./ThemeToggle";
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
@@ -64,6 +65,7 @@ export function Navbar() {
         </ul>
 
         <div className="flex items-center justify-end gap-2">
+          <ThemeToggle />
           <a
             href="#contact"
             onClick={(e) => {
