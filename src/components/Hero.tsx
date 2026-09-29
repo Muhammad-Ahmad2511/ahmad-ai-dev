@@ -8,12 +8,12 @@ const ThreeAIVisualization = lazy(() => import("./ThreeAIVisualization"));
 // ... existing imports ...
 
 const badges = [
-  { text: "EXPLAINABLE AI", pos: "lg:left-[6%] lg:top-[2%]", mobilePos: "left-[5%] top-[4%]", zIndex: 1 },
-  { text: "LLM SYSTEMS", pos: "lg:left-[40%] lg:top-[13%]", mobilePos: "right-[5%] top-[28.5%]", zIndex: 1 },
-  { text: "RAG", pos: "lg:left-[78%] lg:top-[4%]", mobilePos: "left-[8%] top-[38.5%]", zIndex: 1 },
-  { text: "VECTOR SEARCH", pos: "lg:left-[38%] lg:top-[64%]", mobilePos: "right-[4%] top-[49%]", zIndex: 1 },
-  { text: "PRODUCTION ML", pos: "lg:left-[22%] lg:top-[95%]", mobilePos: "left-[5%] top-[71.5%]", zIndex: 1 },
-  { text: "FULL STACK AI", pos: "lg:left-[78%] lg:top-[86%]", mobilePos: "right-[5%] top-[95.5%]", zIndex: 1 },
+  { text: "EXPLAINABLE AI", pos: "lg:left-[6%] lg:top-[2%]", mobilePos: "left-[5%] top-[5%]", zIndex: 1 },
+  { text: "LLM SYSTEMS", pos: "lg:left-[40%] lg:top-[13%]", mobilePos: "right-[7.5%] top-[15%]", zIndex: 1 },
+  { text: "RAG", pos: "lg:left-[78%] lg:top-[4%]", mobilePos: "left-[4%] top-[50.0%]", zIndex: 1 },
+  { text: "VECTOR SEARCH", pos: "lg:left-[38%] lg:top-[64%]", mobilePos: "right-[34%] top-[39%]", zIndex: 1 },
+  { text: "PRODUCTION ML", pos: "lg:left-[22%] lg:top-[95%]", mobilePos: "right-[4%] top-[33.5%]", zIndex: 1 },
+  { text: "FULL STACK AI", pos: "lg:left-[78%] lg:top-[86%]", mobilePos: "right-[4%] top-[73%]", zIndex: 1 },
 ];
 
 const badgeDrift = (index: number) => ({
