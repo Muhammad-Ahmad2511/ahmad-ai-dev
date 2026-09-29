@@ -8,3 +8,5 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Theme preference is controlled by `ThemeToggle` using the `portfolio-theme` localStorage key and the root `.dark` class, so all sections inherit semantic tokens consistently.
