@@ -8,12 +8,12 @@ const ThreeAIVisualization = lazy(() => import("./ThreeAIVisualization"));
 // ... existing imports ...
 
 const badges = [
-  { text: "EXPLAINABLE AI", pos: "lg:left-[6%] lg:top-[2%]", mobilePos: "left-[4%] top-[3%]", zIndex: 1 },
-  { text: "LLM SYSTEMS", pos: "lg:left-[40%] lg:top-[13%]", mobilePos: "left-[58%] top-[19%]", zIndex: 1 },
-  { text: "RAG", pos: "lg:left-[78%] lg:top-[4%]", mobilePos: "left-[8%] top-[36%]", zIndex: 1 },
-  { text: "VECTOR SEARCH", pos: "lg:left-[38%] lg:top-[64%]", mobilePos: "left-[55%] top-[52%]", zIndex: 1 },
-  { text: "PRODUCTION ML", pos: "lg:left-[22%] lg:top-[95%]", mobilePos: "left-[5%] top-[70%]", zIndex: 1 },
-  { text: "FULL STACK AI", pos: "lg:left-[78%] lg:top-[86%]", mobilePos: "left-[57%] top-[89%]", zIndex: 1 },
+  { text: "EXPLAINABLE AI", pos: "lg:left-[6%] lg:top-[2%]", mobilePos: "left-[5%] top-[4%]", zIndex: 1 },
+  { text: "LLM SYSTEMS", pos: "lg:left-[40%] lg:top-[13%]", mobilePos: "right-[5%] top-[28.5%]", zIndex: 1 },
+  { text: "RAG", pos: "lg:left-[78%] lg:top-[4%]", mobilePos: "left-[8%] top-[38.5%]", zIndex: 1 },
+  { text: "VECTOR SEARCH", pos: "lg:left-[38%] lg:top-[64%]", mobilePos: "right-[4%] top-[49%]", zIndex: 1 },
+  { text: "PRODUCTION ML", pos: "lg:left-[22%] lg:top-[95%]", mobilePos: "left-[5%] top-[71.5%]", zIndex: 1 },
+  { text: "FULL STACK AI", pos: "lg:left-[78%] lg:top-[86%]", mobilePos: "right-[5%] top-[95.5%]", zIndex: 1 },
 ];
 
 const badgeDrift = (index: number) => ({
@@ -28,6 +28,18 @@ export function Hero() {
 
   return (
     <section id="home" className="relative tech-grid overflow-hidden pt-24 sm:pt-28">
+      {/* Mobile: compact badges scattered through the full hero height */}
+      <div className="pointer-events-none absolute inset-0 z-0 lg:hidden" aria-hidden="true">
+        {badges.map((b) => (
+          <span
+            key={b.text}
+            className={`absolute w-max whitespace-nowrap rounded-full border-[1.5px] border-accent bg-background/90 px-2 py-0.5 font-mono text-[8px] tracking-[0.12em] text-accent opacity-80 ${b.mobilePos}`}
+          >
+            {b.text}
+          </span>
+        ))}
+      </div>
+
       <div className="mx-auto w-full max-w-[1400px] px-5 sm:px-8 lg:px-12">
         <div className="relative grid items-center gap-12 py-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:gap-14 lg:py-14">
           {/* Desktop: floating badges over the grid (original absolute layout) */}
@@ -50,33 +62,6 @@ export function Hero() {
                     delay,
                     repeat: Infinity,
                     ease: "easeInOut"
-                  }}
-                >
-                  {b.text}
-                </motion.span>
-              );
-            })}
-          </div>
-
-          {/* Mobile: compact badges scattered through the full hero height */}
-          <div className="pointer-events-none absolute inset-0 z-0 lg:hidden" aria-hidden="true">
-            {badges.map((b, index) => {
-              const { xDrift, yDrift, duration, delay } = badgeDrift(index);
-
-              return (
-                <motion.span
-                  key={b.text}
-                  className={`absolute w-max whitespace-nowrap rounded-full border-[1.5px] border-accent bg-background/90 px-2 py-0.5 font-mono text-[8px] tracking-[0.12em] text-accent ${b.mobilePos}`}
-                  initial={{ opacity: 0, y: 0, x: 0 }}
-                  animate={{
-                    opacity: 0.82,
-                    y: reduce ? 0 : [0, yDrift / 2, -yDrift / 2, 0],
-                    x: reduce ? 0 : [0, xDrift / 2, -xDrift / 2, 0],
-                  }}
-                  transition={{
-                    opacity: { duration: reduce ? 0.01 : 0.5, delay: delay / 2 },
-                    y: { duration, delay, repeat: Infinity, ease: "easeInOut" },
-                    x: { duration, delay, repeat: Infinity, ease: "easeInOut" },
                   }}
                 >
                   {b.text}
