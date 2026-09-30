@@ -102,6 +102,7 @@
   --expertise-background: oklch(0.976 0.004 90 / 0.9);
   --expertise-foreground: oklch(0.653 0.235 39.5);
   --expertise-border: oklch(0.653 0.235 39.5);
+  --grid-line: color-mix(in oklab, var(--foreground) 6%, transparent);
 }
 
 .dark {
@@ -141,6 +142,7 @@
   --expertise-background: oklch(0.408389 0.116468 38.172 / 0.2);
   --expertise-foreground: oklch(0.75764 0.159037 55.934);
   --expertise-border: oklch(0.704871 0.186721 47.604 / 0.5);
+  --grid-line: color-mix(in oklab, var(--hairline) 55%, transparent);
 }
 
 @theme inline {
@@ -192,8 +194,8 @@
 /* Technical blueprint grid */
 @utility tech-grid {
   background-image:
-    linear-gradient(to right, color-mix(in oklab, var(--hairline) 55%, transparent) 1px, transparent 1px),
-    linear-gradient(to bottom, color-mix(in oklab, var(--hairline) 55%, transparent) 1px, transparent 1px);
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
   background-size: 72px 72px;
 }
 
